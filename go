@@ -3,9 +3,9 @@
 set -e
 script_dir=$(cd "$(dirname "$0")" ; pwd -P)
 
-goal_build-dev-container() {
+goal_build() {
   pushd "${script_dir}" > /dev/null
-    docker build -t data-derp .
+    docker build -t data-derp/dev-container .
   popd > /dev/null
 }
 
@@ -16,7 +16,7 @@ else
   echo "Usage: $0 <goal>
 
 goal:
-    build-dev-container                    - Builds dev container (tagged: data-derp)
+    build                    - Builds dev container (tagged: data-derp/dev-container)
 "
   exit 1
 fi
